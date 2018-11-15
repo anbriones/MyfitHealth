@@ -1,0 +1,41 @@
+{
+  "success":true,
+   "alimentos": [
+    {
+      "Aceitunas negras": "	349"
+    },
+    {
+      "Aceitunas verdes": "132"
+    },
+    {
+      "Acelgas": "33"
+    },
+    {
+      "Cebolla": "47"
+    },
+    {
+      "Manzana": "52"
+    },
+    {
+      "Piña": "51"
+    },
+    {
+      "Queso de Burgos": "174"
+    },
+    {
+      "Yogur Natural": "62"
+    },
+    {
+      "Pollo": "134"
+    },
+    {
+      "Pollo Muslo": "186"
+    },
+     {
+       "Patatas Fritas": "250"
+     },
+     {
+       "Puré de verduras": "100"
+     }
+  ]
+}
