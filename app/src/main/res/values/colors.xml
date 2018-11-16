@@ -2,9 +2,12 @@
 <resources>
     <color name="colorPrimary">#39bac6</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#11fdfcfb</color>
+    <color name="colorAccent">#01f4f4</color>
     <color name="colorDesayuno">#3a7897</color>
     <color name="colorComida">#72abc8</color>
     <color name="colorMerienda">#418bb0</color>
     <color name="colorCena">#66a0bd</color>
+    <color name="colorActividad">#72abc8</color>
+    <color name="colorHistorial">#418bb0</color>
+    <color name="colorPerfil">#FFFFFF</color>
 </resources>

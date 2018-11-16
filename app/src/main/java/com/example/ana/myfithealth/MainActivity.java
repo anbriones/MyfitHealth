@@ -1,5 +1,6 @@
 package com.example.ana.myfithealth;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,10 +14,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.DatePicker;
+import android.widget.TextView;
+
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, DatePickerDialog.OnDateSetListener  {
     private FragmentTabHost tabHost;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +36,17 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         tabHost= (FragmentTabHost) findViewById(android.R.id.tabhost);
+
         tabHost.setup(this,
                 getSupportFragmentManager(),android.R.id.tabcontent);
-        tabHost.addTab(tabHost.newTabSpec("desayuno").setIndicator("Desayuno"),
-                Desayuno.class, null);
-        tabHost.addTab(tabHost.newTabSpec("comida").setIndicator("Comida"),
-                Comida.class, null);
-        tabHost.addTab(tabHost.newTabSpec("merienda").setIndicator("Merienda"),
-                Merienda.class, null);
-        tabHost.addTab(tabHost.newTabSpec("cena").setIndicator("Cena"),
-                Cena.class, null);
+        tabHost.addTab(tabHost.newTabSpec("perfil").setIndicator("Perfil"),
+                Perfil.class, null);
+        tabHost.addTab(tabHost.newTabSpec("historial").setIndicator("Historial"),
+                Historial.class, null);
+        tabHost.addTab(tabHost.newTabSpec("actividad").setIndicator("Actividad"),
+                Actividad.class, null);
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,19 +103,31 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-
-
          if (id == R.id.nav_manage) {
-
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //CALENDARIO
+    public void datePicker(View view){
+        DatePickerFragment fragment = new DatePickerFragment();
+        fragment.show(getSupportFragmentManager(),"datePicker");
+    }
+
+    private void setDate(final Calendar calendar) {
+        final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+        ((TextView) findViewById(R.id.showDate))
+                .setText(dateFormat.format(calendar.getTime()));
+
+    }
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int day) {
+        Calendar cal = new GregorianCalendar(year, month, day);
+        setDate(cal);
     }
 }
