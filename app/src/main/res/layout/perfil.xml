@@ -96,7 +96,7 @@
         android:text="Peso"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <requestFocus />
+
 
     <EditText
         android:id="@+id/editText"
